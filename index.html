@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bubble Tea Mood — кофейня bubble tea. Свежие напитки, акции и бонусная программа." />
+  <title>Bubble Tea Mood — кофейня bubble tea</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#hero" class="logo">Bubble<span>Tea</span>Mood</a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Переключить меню" />
+      <label for="nav-toggle" class="nav-burger" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li><a href="#about">О нас</a></li>
+          <li><a href="#menu">Меню</a></li>
+          <li><a href="#promo">Акции</a></li>
+          <li><a href="#loyalty">Бонусы</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Главный раздел -->
+    <section id="hero" class="hero">
+      <div class="container hero__inner">
+        <span class="hero__badge">Свежий bubble tea каждый день</span>
+        <h1 class="hero__title">Настроение в каждом <span class="accent">стаканчике</span></h1>
+        <p class="hero__subtitle">Ароматный чай, молоко и фруктовые топпинги. Взболтаем ваше настроение уже сегодня!</p>
+        <div class="hero__actions">
+          <a href="#menu" class="btn btn--primary">Смотреть меню</a>
+          <a href="#contacts" class="btn btn--ghost">Как нас найти</a>
+        </div>
+
+        <div class="bubble-cup" aria-hidden="true">
+          <div class="bubble-cup__straw"></div>
+          <div class="bubble-cup__lid"></div>
+          <div class="bubble-cup__body">
+            <div class="bubble-cup__tea"></div>
+            <div class="bubble-cup__pearls">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- О компании -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">О компании</span>
+          <h2 class="section-title">Наша история</h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__text">
+            <p>Bubble Tea Mood начиналась с маленькой идеи: подарить городу место, где можно остановиться, выдохнуть и насладиться любимым напитком. Первую кофейню мы открыли в 2021 году с одним столом и огромным желанием делать вкусно.</p>
+            <p>Сегодня мы — команда бариста, которая выбирает только свежие ингредиенты: натуральный чай, сливки и сезонные фрукты. Каждый стакан мы готовим с любовью и капелькой хорошего настроения.</p>
+          </div>
+          <ul class="about__facts">
+            <li><strong>5 лет</strong><span>готовим bubble tea</span></li>
+            <li><strong>20+</strong><span>фирменных напитков</span></li>
+            <li><strong>10 000+</strong><span>счастливых гостей</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Меню -->
+    <section id="menu" class="menu">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Меню</span>
+          <h2 class="section-title">Фирменные напитки</h2>
+        </div>
+        <div class="menu__grid">
+          <article class="menu-card">
+            <div class="menu-card__emoji">🧋</div>
+            <h3>Классический молочный</h3>
+            <p>Чёрный чай, молоко и тапиока. Наш бестселлер!</p>
+            <span class="menu-card__price">299 ₽</span>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card__emoji">🍃</div>
+            <h3>Матча латте</h3>
+            <p>Японская матча, молоко и лёгкая сладость.</p>
+            <span class="menu-card__price">349 ₽</span>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card__emoji">🍠</div>
+            <h3>Таро слим</h3>
+            <p>Кремовый таро, молоко и нежный сиреневый цвет.</p>
+            <span class="menu-card__price">329 ₽</span>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card__emoji">🍓</div>
+            <h3>Ягодный микс</h3>
+            <p>Клубника и малина с зелёным чаем и льдом.</p>
+            <span class="menu-card__price">359 ₽</span>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card__emoji">🥥</div>
+            <h3>Тайский чай</h3>
+            <p>Пряный тайский чай с кокосовым молоком.</p>
+            <span class="menu-card__price">319 ₽</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Акции -->
+    <section id="promo" class="promo">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Акции</span>
+          <h2 class="section-title">Выгодные предложения</h2>
+        </div>
+        <div class="promo__grid">
+          <article class="promo-card promo-card--green">
+            <span class="promo-card__label">Каждый день</span>
+            <h3>Счастливые часы</h3>
+            <p>Скидка 20% на все напитки с 12:00 до 15:00.</p>
+          </article>
+          <article class="promo-card promo-card--lilac">
+            <span class="promo-card__label">По вторникам</span>
+            <h3>2 + 1 в подарок</h3>
+            <p>Купите два напитка — третий получите бесплатно.</p>
+          </article>
+          <article class="promo-card promo-card--beige">
+            <span class="promo-card__label">Новым гостям</span>
+            <h3>−50% на первый заказ</h3>
+            <p>Промокод MOOD при первом заказе в кофейне.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Бонусная программа -->
+    <section id="loyalty" class="loyalty">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Бонусная программа</span>
+          <h2 class="section-title">Правила лояльности</h2>
+        </div>
+        <div class="loyalty__grid">
+          <div class="loyalty-card">
+            <div class="loyalty-card__icon">💜</div>
+            <h3>Копите баллы</h3>
+            <p>1 балл за каждые 50 ₽ в чеке. Баллы зачисляются сразу после оплаты.</p>
+          </div>
+          <div class="loyalty-card">
+            <div class="loyalty-card__icon">🎁</div>
+            <h3>Меняйте на напитки</h3>
+            <p>100 баллов = 200 ₽ скидки. Можно оплатить до 50% заказа.</p>
+          </div>
+          <div class="loyalty-card">
+            <div class="loyalty-card__icon">🎂</div>
+            <h3>Бонус в день рождения</h3>
+            <p>В свой праздник получайте двойной кэшбек и бесплатный топпинг.</p>
+          </div>
+          <div class="loyalty-card">
+            <div class="loyalty-card__icon">⭐</div>
+            <h3>Растите по уровням</h3>
+            <p>Гость → Постоянный гость → VIP. Чем выше уровень, тем больше привилегий.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="contacts">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Контакты</span>
+          <h2 class="section-title">Ждём вас в гости</h2>
+        </div>
+        <div class="contacts__grid">
+          <div class="contacts-card">
+            <h3>📍 Местоположение</h3>
+            <p>г. Москва, ул. Чайная, 15<br />Бизнес-центр «Муд», 1 этаж</p>
+          </div>
+          <div class="contacts-card">
+            <h3>🕒 Часы работы</h3>
+            <p>Пн–Пт: 9:00 – 21:00<br />Сб–Вс: 10:00 – 22:00</p>
+          </div>
+          <div class="contacts-card">
+            <h3>📞 Связь с нами</h3>
+            <p>
+              <a href="tel:+79000000000">+7 (900) 000-00-00</a><br />
+              <a href="mailto:hello@bubbleteamood.ru">hello@bubbleteamood.ru</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2025 Bubble Tea Mood. Готовим с любовью и жемчужинами.</p>
+    </div>
+  </footer>
+</body>
+</html>
