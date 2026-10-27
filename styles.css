@@ -29,11 +29,20 @@ html {
 }
 
 body {
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Manrope", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: var(--ink);
   background: var(--beige-50);
   line-height: 1.6;
   overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: "Unbounded", "Segoe UI", sans-serif;
+  font-weight: 800;
+  line-height: 1.25;
 }
 
 /* Видимый фокус для навигации с клавиатуры */
@@ -143,6 +152,66 @@ img {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Подсветка активного пункта навигации (scrollspy) */
+.nav__list a.is-active {
+  color: var(--green-600);
+}
+
+.nav__list a.is-active::after {
+  width: 100%;
+}
+
+/* Кнопка корзины */
+.cart-btn {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cart-btn__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--lilac-600);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 20px;
+  text-align: center;
+}
+
+.cart-btn__badge.is-bump {
+  animation: badge-bump 0.4s ease;
+}
+
+@keyframes badge-bump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* ===== Общие элементы секций ===== */
 .section-head {
   text-align: center;
@@ -151,7 +220,7 @@ img {
 
 .section-tag {
   display: inline-block;
-  background: var(--lilac-300);
+  background: linear-gradient(135deg, var(--lilac-300), var(--beige-300));
   color: var(--green-700);
   font-weight: 700;
   font-size: 0.8rem;
@@ -169,9 +238,115 @@ img {
 
 /* ===== Главный раздел ===== */
 .hero {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--lilac-300) 0%, var(--beige-100) 55%, var(--green-500) 130%);
+  background-size: 200% 200%;
+  animation: hero-gradient 14s ease-in-out infinite;
   padding: 110px 0 120px;
   text-align: center;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes hero-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Плавающие пузырьки в hero */
+.hero__bubbles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__bubbles span {
+  position: absolute;
+  bottom: -70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  animation: bubble-rise 12s linear infinite;
+}
+
+.hero__bubbles span:nth-child(1) {
+  left: 8%;
+  width: 26px;
+  height: 26px;
+  animation-delay: 0s;
+}
+
+.hero__bubbles span:nth-child(2) {
+  left: 22%;
+  width: 14px;
+  height: 14px;
+  animation-delay: 2s;
+}
+
+.hero__bubbles span:nth-child(3) {
+  left: 38%;
+  width: 34px;
+  height: 34px;
+  animation-delay: 4s;
+}
+
+.hero__bubbles span:nth-child(4) {
+  left: 55%;
+  width: 18px;
+  height: 18px;
+  animation-delay: 1s;
+}
+
+.hero__bubbles span:nth-child(5) {
+  left: 70%;
+  width: 24px;
+  height: 24px;
+  animation-delay: 3s;
+}
+
+.hero__bubbles span:nth-child(6) {
+  left: 82%;
+  width: 16px;
+  height: 16px;
+  animation-delay: 5s;
+}
+
+.hero__bubbles span:nth-child(7) {
+  left: 92%;
+  width: 30px;
+  height: 30px;
+  animation-delay: 2.5s;
+}
+
+.hero__bubbles span:nth-child(8) {
+  left: 12%;
+  width: 10px;
+  height: 10px;
+  animation-delay: 6s;
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(30px);
+    opacity: 0;
+  }
 }
 
 .hero__badge {
@@ -221,13 +396,13 @@ img {
 }
 
 .btn--primary {
-  background: var(--green-500);
+  background: linear-gradient(135deg, var(--green-500), var(--green-600));
   color: var(--white);
   box-shadow: var(--shadow-sm);
 }
 
 .btn--primary:hover {
-  background: var(--green-600);
+  background: linear-gradient(135deg, var(--green-600), var(--green-700));
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
@@ -247,6 +422,11 @@ img {
 
 .btn:active {
   transform: translateY(-1px) scale(0.98);
+}
+
+.btn--small {
+  padding: 9px 16px;
+  font-size: 0.85rem;
 }
 
 /* ===== Анимированный стаканчик bubble tea ===== */
@@ -427,6 +607,38 @@ img {
   padding: 90px 0;
 }
 
+.menu__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.menu__filter {
+  border: 2px solid var(--beige-300);
+  background: var(--white);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.menu__filter:hover {
+  border-color: var(--green-500);
+  transform: translateY(-2px);
+}
+
+.menu__filter.is-active {
+  background: linear-gradient(135deg, var(--green-500), var(--green-600));
+  border-color: transparent;
+  color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
 .menu__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -434,6 +646,7 @@ img {
 }
 
 .menu-card {
+  position: relative;
   background: var(--white);
   border-radius: var(--radius);
   padding: 28px 20px;
@@ -442,14 +655,56 @@ img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.menu-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  padding: 2px;
+  background: linear-gradient(135deg, var(--lilac-400), var(--green-500));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
 .menu-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: var(--shadow-lg);
 }
 
-.menu-card__emoji {
-  font-size: 3rem;
-  margin-bottom: 12px;
+.menu-card:hover::before {
+  opacity: 1;
+}
+
+.menu-card.is-hidden {
+  display: none;
+}
+
+.menu-card__image-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--beige-100);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.menu-card:hover .menu-card__img {
+  transform: scale(1.08);
 }
 
 .menu-card h3 {
@@ -470,6 +725,18 @@ img {
   font-weight: 800;
   padding: 6px 16px;
   border-radius: 999px;
+}
+
+.menu-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.menu-card__actions .btn {
+  width: 100%;
+  text-align: center;
 }
 
 /* ===== Акции ===== */
@@ -720,6 +987,141 @@ img {
   }
 }
 
+/* ===== Анимация появления при прокрутке ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Кнопка «Наверх» ===== */
+.to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--green-500);
+  color: var(--white);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background 0.3s ease;
+  z-index: 90;
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.to-top:hover {
+  background: var(--green-600);
+}
+
+/* ===== Модальное окно с деталями напитка ===== */
+.modal {
+  border: none;
+  border-radius: var(--radius);
+  padding: 0;
+  max-width: 420px;
+  width: 92%;
+  box-shadow: var(--shadow-lg);
+  background: var(--white);
+}
+
+.modal::backdrop {
+  background: rgba(43, 43, 51, 0.55);
+  backdrop-filter: blur(4px);
+}
+
+.modal__content {
+  position: relative;
+  padding: 28px 26px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: var(--beige-100);
+  color: var(--ink);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.modal__close:hover {
+  background: var(--beige-300);
+  transform: rotate(90deg);
+}
+
+.modal__img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+.modal__title {
+  font-size: 1.3rem;
+}
+
+.modal__desc {
+  color: rgba(43, 43, 51, 0.75);
+}
+
+.modal__add {
+  margin-top: 6px;
+}
+
+/* ===== Toast-уведомление ===== */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%) translateY(16px);
+  background: var(--green-700);
+  color: var(--beige-50);
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 200;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* Уважаем настройку «уменьшить движение» */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -732,5 +1134,14 @@ img {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__bubbles {
+    display: none;
   }
 }
